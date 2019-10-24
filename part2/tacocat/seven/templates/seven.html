@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Seven App</h2>
+<h3>This app processes a list of comma separated integers to obtain sets of numbers that add up to 7</h3>
+
+
+<form action="{% url 'seven' %}" method="post">
+    {% csrf_token %} 
+    {{integerListForm}}
+    <input type="submit" value="Get sets">
+</form>
+<h4>{{ note }}</h4>
+{% endblock  %}
