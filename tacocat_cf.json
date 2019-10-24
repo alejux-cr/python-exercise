@@ -1,0 +1,49 @@
+{
+    "DjangoEC2Instance": {
+        "Properties": {
+            "BlockDeviceMappings": [
+                {
+                    "DeviceName": "/dev/sda1",
+                    "Ebs": {
+                        "VolumeSize": 50
+                    }
+                },
+                {
+                    "DeviceName": "/dev/sdm",
+                    "Ebs": {
+                        "VolumeSize": 100
+                    }
+                }
+            ],
+            "ImageId": {
+                "Fn::FindInMap": [
+                    "AWSRegionArch2AMI",
+                    {
+                        "Ref": "AWS::Region"
+                    },
+                    {
+                        "Fn::FindInMap": [
+                            "AWSInstanceType2Arch",
+                            {
+                                "Ref": "InstanceType"
+                            },
+                            "Arch"
+                        ]
+                    }
+                ]
+            },
+            "InstanceType": {
+                "Ref": "MyInstanceType"
+            },
+            "KeyName": {
+                "Ref": "DjangoKeyName"
+            },
+            "SecurityGroups": [
+                {
+                    "Ref": "DjangoEc2SecurityGroup"
+                }
+            ]
+        },
+        "Type": "AWS::EC2::Instance"
+    }
+}

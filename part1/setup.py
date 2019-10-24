@@ -1,13 +1,19 @@
+#!/usr/bin/env python
+
 from setuptools import setup, find_packages
 
+from src import python_exercise
+
+version = ".".join(map(str, python_exercise.__version__))
 
 setup(
-    name='python-exercise',
-    version='1.0.0',
+    name='python_exercise',
+    version=version,
     description='Simple python project for recruitment',
     maintainer='https://github.com/ModusCreateOrg',
-    license='MIT',
+    license='MIT', 
     url='https://github.com/ModusCreateOrg/python-exercise',
+    author="Alejandro Castillo",
     package_dir={'': 'src'},
     include_package_data=True,
     packages=find_packages('src'),
@@ -15,7 +21,7 @@ setup(
     ],
     entry_points={
         'console_script': [
-            'python-exercise = python_exercise.__main__:main'
+            'python_exercise = python_exercise.__main__:main'
         ]
     }
 )
