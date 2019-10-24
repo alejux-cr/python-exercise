@@ -1,0 +1,10 @@
+cfn-flip==1.2.1
+Click==7.0
+-e git+https://github.com/alejux-cr/python-exercise.git@a94446048ef8a7c145ecc8c1432aa17c580c61fe#egg=python_exercise&subdirectory=part1
+PyYAML==5.1.2
+ruamel.yaml==0.16.5
+ruamel.yaml.clib==0.2.0
+six==1.12.0
+
+
+#https://github.com/awslabs/aws-cfn-template-flip
