@@ -23,8 +23,8 @@ def welcome():
     print(l8)
 
 def main():
-    create_django_project()
-    #welcome()
+
+    welcome()
     parser = argparse.ArgumentParser(description='This is our Django project generator tool set.',add_help=False)
     parser.add_argument('-h','--help', help='Thank you for asking for help. These tools are used to generate a Django project and convert CloudFormation code from YAML to JSON.',action='help',dest='help_command')
     parser.add_argument('-name',help='Project name. Must be a palindrome string [e.g. tacocat].', dest='project_name', type=str, required=False)
@@ -35,6 +35,8 @@ def main():
 
     if(args.input_yaml):
         yaml_to_json(args.input_yaml)
+    if(args.project_name):
+        create_django_project(args.project_name)
 
 if __name__ == '__main__':
     main()
