@@ -1,5 +1,5 @@
 
-from itertools import permutations
+from itertools import combinations
 
 def split_str_by(p_string, p_separator=','):
     try:
@@ -14,9 +14,21 @@ def str_list_to_int_list(p_str_list):
         int_list = list(map(int, p_str_list))
         return int_list
     except ValueError as verr:
-        return [0]
+        return []
     except Exception as ex:
-        return [0]
+        return []
 
-def generate_set_pair_sum7(p_list):
-    print('work in progress...')
+def generate_set_pair_sum7(p_string,p_separator=','):
+    result_list = []
+    tuple_list = split_str_by(p_string, p_separator)
+    if len(tuple_list) > 0:
+        combs = combinations(tuple_list, 2)
+        
+        for pair_tuple in combs:
+            if (pair_tuple[0]+pair_tuple[1]) == 7:
+                result_list.append(pair_tuple)
+        
+        if len(result_list) == 0:
+            result_list.append('No set sums up to 7')
+    
+    return result_list
